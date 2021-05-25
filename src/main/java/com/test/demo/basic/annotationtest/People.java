@@ -1,6 +1,7 @@
 package com.test.demo.basic.annotationtest;
 
-import train.basic.annotationtest.anno.*;
+
+import com.test.demo.basic.annotationtest.anno.*;
 
 /**
  * @Author chengqj

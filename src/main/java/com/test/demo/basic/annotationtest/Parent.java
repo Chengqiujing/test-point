@@ -1,6 +1,7 @@
 package com.test.demo.basic.annotationtest;
 
-import train.basic.annotationtest.anno.ParentTypeAnno;
+
+import com.test.demo.basic.annotationtest.anno.ParentTypeAnno;
 
 /**
  * @Author chengqj
