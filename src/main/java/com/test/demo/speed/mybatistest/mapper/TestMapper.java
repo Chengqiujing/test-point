@@ -1,4 +1,7 @@
-package com.test.demo.speed.mybatistest;
+package com.test.demo.speed.mybatistest.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.test.demo.speed.mybatistest.entity.Record;
 
 /**
  * *************************************************************************
@@ -12,7 +15,7 @@ package com.test.demo.speed.mybatistest;
  * @author：chengqj
  * @创建时间：2021/4/29 15:18
  */
-public interface TestMapper {
+public interface TestMapper extends BaseMapper<Record> {
 
 
 
