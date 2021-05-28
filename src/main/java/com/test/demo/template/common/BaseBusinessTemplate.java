@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 /**
  * *************************************************************************
@@ -24,7 +23,7 @@ import java.util.ResourceBundle;
  */
 public abstract class BaseBusinessTemplate<T,R>{
     private final Logger logger = LoggerFactory.getLogger(BaseBusinessTemplate.class);
-    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("stringMessages");
+//    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("stringMessages");
 
     private BizContext bizContext;
 
