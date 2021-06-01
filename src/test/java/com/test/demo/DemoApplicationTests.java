@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -26,6 +27,82 @@ class DemoApplicationTests {
 
     @Autowired
     TestMapper testMapper;
+
+    // 测试能不能返回行数
+    @Test
+    void sqlInsert1() {
+        // 获取10000条数据
+        List<String> test1 = toSqlValues(getData(10000, "test1"));
+        System.out.println("开始插入数据 ...");
+        long start = System.currentTimeMillis();
+        StringBuilder stringBuilder = new StringBuilder("INSERT INTO `tenant_insert`.`authentication_access_log` (\n" +
+                "\t`ID`,\n" +
+                "\t`LOGIN_DN`,\n" +
+                "\t`USER_NAME`,\n" +
+                "\t`NAME_ID`,\n" +
+                "\t`LOGGED_BY`,\n" +
+                "\t`USER_ID`,\n" +
+                "\t`MESSAGE`,\n" +
+                "\t`IP_ADDRESS`,\n" +
+                "\t`CONTENT`,\n" +
+                "\t`ORG_ID`,\n" +
+                "\t`ORG_NAME`,\n" +
+                "\t`LOG_TYPE`,\n" +
+                "\t`CLIENT_TYPE`,\n" +
+                "\t`OPT_TIME`,\n" +
+                "\t`MODULE_NAME`,\n" +
+                "\t`TENANT_ID`\n" +
+                ")\n" +
+                "VALUES\n" +
+                "\t(\n" +
+                "\t\t'10000091f2test1970f7fe801',\n" +
+                "\t\t'id=huhua2389,ou=user,o=ceshiqiye7hao,ou=services,dc=uconf,dc=com',\n" +
+                "\t\t'呼呼啊0',\n" +
+                "\t\t'huhua0',\n" +
+                "\t\t'cn=dsameuser,ou=DSAME Users,o=ceshiqiye7hao,ou=services,dc=uconf,dc=com',\n" +
+                "\t\t'bf9e058c276b41739a96180a4bcbd508',\n" +
+                "\t\t'登录成功',\n" +
+                "\t\t'192.168.126.125',\n" +
+                "\t\t'登录成功|service|initService',\n" +
+                "\t\t'4fce544749c34bc5b866c88f7907fcdf',\n" +
+                "\t\t'测试机构1',\n" +
+                "\t\t'1',\n" +
+                "\t\t'pc',\n" +
+                "\t\t'2021-05-24 23:34:13',\n" +
+                "\t\t'BjcaLDAP',\n" +
+                "\t\t'ceshiqiye1hao'\n" +
+                "\t),\n" +
+                "\n" +
+                "\t(\n" +
+                "\t\t'00000091f2test1970f7fe811',\n" +
+                "\t\t'id=huhua2389,ou=user,o=ceshiqiye7hao,ou=services,dc=uconf,dc=com',\n" +
+                "\t\t'呼呼啊1',\n" +
+                "\t\t'huhua1',\n" +
+                "\t\t'cn=dsameuser,ou=DSAME Users,o=ceshiqiye7hao,ou=services,dc=uconf,dc=com',\n" +
+                "\t\t'bf9e058c276b41739a96180a4bcbd508',\n" +
+                "\t\t'登录成功',\n" +
+                "\t\t'192.168.126.125',\n" +
+                "\t\t'登录成功|service|initService',\n" +
+                "\t\t'4fce544749c34bc5b866c88f7907fcdf',\n" +
+                "\t\t'测试机构1',\n" +
+                "\t\t'1',\n" +
+                "\t\t'pc',\n" +
+                "\t\t'2021-05-24 23:34:13',\n" +
+                "\t\t'BjcaLDAP',\n" +
+                "\t\t'ceshiqiye1hao'\n" +
+                "\t);\n");
+
+
+        int update = jdbcTemplate.update(stringBuilder.toString());
+        System.out.println(update);
+
+        long end = System.currentTimeMillis();
+        System.out.println("插入结束...");
+        System.out.println("总耗时: " + (end - start) / 1000.0);
+
+
+    }
+
 
     @Test
     void batchUpdateByMabatis() {
@@ -170,12 +247,11 @@ class DemoApplicationTests {
 
     }
 
-
     @Test
     void sqlInsert() {
         // 获取10000条数据
 
-        List<String> test1 = toSqlValues(getData(10000, "test1"));
+        List<String> test1 = toSqlValues(getData(500000, "test2"));
         System.out.println("开始插入数据 ...");
         long start = System.currentTimeMillis();
         StringBuilder stringBuilder = new StringBuilder("insert into authentication_access_log values");
@@ -246,15 +322,20 @@ class DemoApplicationTests {
      *
      * @return
      */
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Random random = new Random(1);
+
     List<AuthenticationAccessLog> getData(int num, String yizi) {
         List<AuthenticationAccessLog> dataList = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
         try {
-            Date parse = sdf.parse("2021-05-24 23:34:13");
 
             for (int i = 0; i < num; i++) {
+                Date parse = sdf.parse("2021-06-01 00:12:01");
+                parse.setHours(random.nextInt(24));
+
                 AuthenticationAccessLog log = new AuthenticationAccessLog();
-                log.setId("0000009f2" + yizi + "970f7fe8" + i);
+                log.setId("0009f2" + yizi + "970f7fe8" + i);
                 log.setLoginDn("id=huhua2389,ou=user,o=ceshiqiye7hao,ou=services,dc=uconf,dc=com");
                 log.setUserName("呼呼啊" + i);
                 log.setNameId("huhua" + i);
