@@ -337,10 +337,10 @@ class DemoApplicationTests {
                 AuthenticationAccessLog log = new AuthenticationAccessLog();
                 log.setId("0009f2" + yizi + "970f7fe8" + i);
                 log.setLoginDn("id=huhua2389,ou=user,o=ceshiqiye7hao,ou=services,dc=uconf,dc=com");
-                log.setUserName("呼呼啊" + i);
-                log.setNameId("huhua" + i);
+                log.setUserName(yizi + "呼呼啊");
+                log.setNameId(yizi + "huhua");
                 log.setLoggedBy("cn=dsameuser,ou=DSAME Users,o=ceshiqiye7hao,ou=services,dc=uconf,dc=com");
-                log.setUserId("bf9e058c276b41739a96180a4bcbd508");
+                log.setUserId("bf9e058c27" + yizi + "80a4bcbd508");
                 log.setMessage("登录成功");
                 log.setIpAddress("192.168.126.125");
                 log.setContent("登录成功|service|initService");
