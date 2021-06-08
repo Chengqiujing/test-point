@@ -1,7 +1,6 @@
 package com.test.demo.bug;
 
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.junit.platform.commons.util.StringUtils;
 import org.slf4j.Logger;
@@ -9,10 +8,9 @@ import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 /**
  * *************************************************************************
@@ -39,6 +37,7 @@ public class Test1 {
         int i = random.nextInt(1000);
         System.out.println(i);
 
+        System.out.println(Math.ceil(23.098));
     }
 
 
