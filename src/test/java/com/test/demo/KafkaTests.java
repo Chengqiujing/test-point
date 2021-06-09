@@ -35,9 +35,9 @@ class KafkaTests {
         String[] depart = {"org1","org2","org3"};
         String[] app = {"a1","a2","a3"};
 
-        for (int i = 0; i < 30; i++) { // 用户数
+        for (int i = 0; i < 300000; i++) { // 用户数
             int i1 = random.nextInt(3);
-            List<Map> test1 = getSso1wData(20,"test"+ i,"2021-06-06 00:12:01",depart[i1],app[i1],String.valueOf(i1)); // 每个用户登录多少次
+            List<Map> test1 = getSso1wData(10,"test"+ i,"2021-06-07 00:12:01",depart[i1],app[i1],String.valueOf(i1)); // 每个用户登录多少次
 
             for (Map s : test1) {
                 logService.logSSOlog(s,1);
@@ -90,7 +90,7 @@ class KafkaTests {
     @Test
     public void testAuthBatchInsert(){
         for (int i = 0; i < 300000; i++) { // 用户数
-            List<Map> test1 = get1wData(20,"test"+ i,"2021-06-02 00:12:01"); // 每个用户登录多少次
+            List<Map> test1 = get1wData(10,"test"+ i,"2021-06-07 00:12:01"); // 每个用户登录多少次
 
             for (Map s : test1) {
                 logService.logAuthenticationAcess(s,1);

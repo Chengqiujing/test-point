@@ -95,7 +95,7 @@ public class LogService {
 
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                logger.info("发送认证日志成功！"+jsonStr);
+//                logger.info("发送认证日志成功！"+jsonStr);
             }
         });
     }
