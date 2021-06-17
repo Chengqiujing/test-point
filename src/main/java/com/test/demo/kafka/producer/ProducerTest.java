@@ -22,34 +22,17 @@ import java.util.Properties;
 public class ProducerTest {
     static Logger log = LoggerFactory.getLogger(ProducerTest.class);
 
-    private static final String TOPIC = "milo2";
-    private static final String BROKER_LIST = "118.212.149.51:9092";
-    private static KafkaProducer<String, String> producer = null;
-
-    /*
-    初始化生产者
-     */
-    static {
-        Properties configs = initConfig();
-        producer = new KafkaProducer<String, String>(configs);
-    }
-
-    /*
-    初始化配置
-     */
-    private static Properties initConfig() {
+    public static void main(String[] args) throws InterruptedException {
         Properties properties = new Properties();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_LIST);
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "118.212.149.51:9092");
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        return properties;
-    }
 
-    public static void main(String[] args) throws InterruptedException {
+        KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
+
         //消息实体
-        ProducerRecord<String, String> record = null;
         for (int i = 0; i < 1000; i++) {
-            record = new ProducerRecord<String, String>(TOPIC, "value" + (int) (10 * (Math.random())));
+            ProducerRecord<String, String> record = new ProducerRecord<String, String>("milo2", "value" + (int) (10 * (Math.random())));
             //发送消息
             producer.send(record, new Callback() {
                 @Override
