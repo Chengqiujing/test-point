@@ -25,5 +25,8 @@ public class ListTest {
                 iterator.remove();
         }
         System.out.println(list);
+
+
+        List list2 = new ArrayList(null); // 不可以为null
     }
 }
