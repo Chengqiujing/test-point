@@ -21,6 +21,10 @@ public class StreamTest {
         List<Person> collect = peoples.stream().sorted(Comparator.comparing(Person::getLocalDate)).collect(Collectors.toList());
         System.out.println(collect);
 
+        // 测试collect返回的是空集合还是null
+        List<Person> collect1 = peoples.stream().filter(person -> person.getAge() == 1).collect(Collectors.toList());
+        System.out.println(collect1); // 返回空集合
+
 
     }
 }
