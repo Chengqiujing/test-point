@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -25,6 +27,9 @@ public class StreamTest {
         List<Person> collect1 = peoples.stream().filter(person -> person.getAge() == 1).collect(Collectors.toList());
         System.out.println(collect1); // 返回空集合
 
+        // 转Map
+        Map<String, Person> collect2 = peoples.stream().collect(Collectors.toMap(Person::getName, Function.identity(), (k1, k2) -> k2));
+        System.out.println(collect2);
 
     }
 }
