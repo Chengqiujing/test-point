@@ -12,18 +12,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-/**
- * *************************************************************************
- * <p/>
- *
- * @文件名称: Test1.java
- * @包 路 径： com.test.demo.bug
- * @版权所有：北京数字认证股份有限公司 (C) 2021
- * @类描述:
- * @版本: V1.0
- * @author：chengqj
- * @创建时间：2021/3/17 15:56
- */
+
 @Slf4j
 public class Test1 {
     private Logger logger = LoggerFactory.getLogger(this.getClass());

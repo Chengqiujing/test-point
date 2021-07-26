@@ -9,18 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * *************************************************************************
- * <p/>
- *
- * @文件名称: BaseBusiness.java
- * @包 路 径： cn.org.bjca.idm.business.certification
- * @版权所有：北京数字认证股份有限公司 (C) 2021
- * @类描述: 顶级业务抽象类
- * @版本: V1.0
- * @author：chengqiujing
- * @创建时间：2021/2/3 10:26
- */
+
 public abstract class BaseBusinessTemplate<T,R>{
     private final Logger logger = LoggerFactory.getLogger(BaseBusinessTemplate.class);
 //    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("stringMessages");

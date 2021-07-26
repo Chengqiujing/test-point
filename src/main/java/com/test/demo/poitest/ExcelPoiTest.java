@@ -6,18 +6,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- * *************************************************************************
- * <p/>
- *
- * @文件名称: ExcelPoiTest.java
- * @包 路 径： com.test.demo.poitest
- * @版权所有：北京数字认证股份有限公司 (C) 2021
- * @类描述:
- * @版本: V1.0
- * @author：chengqj
- * @创建时间：2021/7/15 17:41
- */
+
 public class ExcelPoiTest {
     public static void main(String[] args) throws IOException {
         String filePath="d:\\sample.xls";//文件路径

@@ -7,18 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-/**
- * *************************************************************************
- * <p/>
- *
- * @文件名称: UserService.java
- * @包 路 径： com.test.demo.template.service
- * @版权所有：北京数字认证股份有限公司 (C) 2021
- * @类描述:
- * @版本: V1.0
- * @author：chengqj
- * @创建时间：2021/4/23 11:00
- */
+
 @Service
 public class UserService extends BaseBusinessTemplate<User, UserInfo> {
     @Override

@@ -4,18 +4,7 @@ import lombok.Data;
 
 import java.io.*;
 
-/**
- * *************************************************************************
- * <p/>
- *
- * @文件名称: SerilizeableTest.java
- * @包 路 径： com.test.demo.basic
- * @版权所有：北京数字认证股份有限公司 (C) 2021
- * @类描述:
- * @版本: V1.0
- * @author：chengqj
- * @创建时间：2021/6/17 16:49
- */
+
 @Data
 public class SerializableTest implements Serializable {
 
