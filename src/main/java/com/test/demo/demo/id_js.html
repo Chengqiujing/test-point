@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+
+        /*
+         * 生成身份id -- 开始
+         */
+        var ValCodeArr = ["1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"];
+        var Wi = ["7", "9", "10", "5", "8", "4", "2", "1", "6", "3", "7", "9", "10", "5", "8", "4", "2"];
+        var hashtable = {};
+        hashtable["11"] = "北京";
+        hashtable["12"] = "天津";
+        hashtable["13"] = "河北";
+        hashtable["14"] = "山西";
+        hashtable["15"] = "内蒙古";
+        hashtable["21"] = "辽宁";
+        hashtable["22"] = "吉林";
+        hashtable["23"] = "黑龙江";
+        hashtable["31"] = "上海";
+        hashtable["32"] = "江苏";
+        hashtable["33"] = "浙江";
+        hashtable["34"] = "安徽";
+        hashtable["35"] = "福建";
+        hashtable["36"] = "江西";
+        hashtable["37"] = "山东";
+        hashtable["41"] = "河南";
+        hashtable["42"] = "湖北";
+        hashtable["43"] = "湖南";
+        hashtable["44"] = "广东";
+        hashtable["45"] = "广西";
+        hashtable["46"] = "海南";
+        hashtable["50"] = "重庆";
+        hashtable["51"] = "四川";
+        hashtable["52"] = "贵州";
+        hashtable["53"] = "云南";
+        hashtable["54"] = "西藏";
+        hashtable["61"] = "陕西";
+        hashtable["62"] = "甘肃";
+        hashtable["63"] = "青海";
+        hashtable["64"] = "宁夏";
+        hashtable["65"] = "新疆";
+        hashtable["71"] = "台湾";
+        hashtable["81"] = "香港";
+        hashtable["82"] = "澳门";
+        hashtable["91"] = "国外";
+
+        function random3(){
+            return "" + Math.floor(Math.random() * 10)
+                + Math.floor(Math.random() * 10)
+                + Math.floor(Math.random() * 10);
+        }
+        function randomArea() {
+            var count = Math.floor(Math.random() * 34);
+            var areaCode = "";
+
+            var index = 0;
+            for(key in hashtable){
+                if(index == count){
+                    areaCode = key;
+                }
+                index++;
+            }
+            areaCode += Math.floor(Math.random() * 10);
+            areaCode += Math.floor(Math.random() * 10);
+            areaCode += Math.floor(Math.random() * 10);
+            areaCode += Math.floor(Math.random() * 10);
+            return areaCode;
+        }
+        function randomBithday(year) {
+            var base = year - 90;
+            var bd = base + Math.floor(Math.random() * 90) + "";
+            var i = 1 + Math.floor(Math.random() * 12);
+            bd += i>9? i : "0"+i;
+            var i1 = 1 + Math.floor(Math.random() * 28);
+            bd += i1 > 9? i1 : "0" + i1;
+            return bd;
+        }
+        function lastsOne(ai) {
+            var TotalmulAiWi = 0;
+            for (var i = 0; i < 17; i++) {
+                TotalmulAiWi = TotalmulAiWi + parseInt(ai[i]) * parseInt(Wi[i]);
+            }
+            var modValue = TotalmulAiWi % 11;
+            var strVerifyCode = "";
+            if (modValue >= 0) {
+                strVerifyCode = ValCodeArr[modValue];
+            }
+            return strVerifyCode;
+        }
+
+        function produceIDs() {
+            var year = new Date().getFullYear();
+            var a = randomArea() + randomBithday(year) + random3();
+            return a + lastsOne(a);
+        }
+        /*
+         * 生成身份id -- 结束
+         */
+        let produceIDs1 = produceIDs();
+        console.log(produceIDs1)
+        window.onload = function(){
+            document.getElementById("bottom-panel").innerText = produceIDs1;
+        }
+    </script>
+</head>
+<body>
+  <p id="bottom-panel">啊啊啊啊</p>
+</body>
+</html>
