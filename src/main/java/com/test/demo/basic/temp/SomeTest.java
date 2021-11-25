@@ -1,8 +1,7 @@
 package com.test.demo.basic.temp;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.Date;
+import java.util.regex.Pattern;
 
 /**
  * *************************************************************************
@@ -24,14 +23,21 @@ public class SomeTest {
         System.out.println(substring);
 
 
-        Map map = new HashMap<>();
-        map.put("1","11");
-        map.put("2","12");
-        Set set = map.keySet();
+//        Map map = new HashMap<>();
+//        map.put("1","11");
+//        map.put("2","12");
+//        Set set = map.keySet();
+//
+//        for (Object o : set) {
+//            map.remove(o);
+//        }
+//        System.out.println(map);
 
-        for (Object o : set) {
-            map.remove(o);
-        }
-        System.out.println(map);
+        System.out.println(new Date().getTime());
+
+        System.out.println("1无\n1".matches("(?s)'.*'"));
+        System.out.println("1无\n1".replaceAll("(?s)'.*'",""));
+        Pattern compile = Pattern.compile(".*", Pattern.MULTILINE);
+        System.out.println(compile.matcher("无").find());
     }
 }
