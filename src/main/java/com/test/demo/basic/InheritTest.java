@@ -17,7 +17,12 @@ public class InheritTest {
         System.out.println(B.name);
         System.out.println(B.getName());
 
+        StringBuilder stringBuilder = new StringBuilder();
+        String a = null;
+        stringBuilder.append("123").append(a);
+        System.out.println(stringBuilder);
 
+        System.out.println("0&" + null);
     }
 }
 class A {
