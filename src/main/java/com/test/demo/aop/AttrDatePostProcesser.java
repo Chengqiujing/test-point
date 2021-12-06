@@ -1,5 +1,10 @@
 package com.test.demo.aop;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * *************************************************************************
  * <p/>
@@ -12,6 +17,8 @@ package com.test.demo.aop;
  * @author：chengqj
  * @创建时间：2021/11/18 16:03
  */
+@Target(ElementType.METHOD )
+@Retention(RetentionPolicy.RUNTIME)
 public @interface AttrDatePostProcesser {
     Class type();
 }
