@@ -2,7 +2,7 @@ spring:
   datasource:
     name: testDatasource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/tenant_insert?characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://127.0.0.1:3306/test_data?characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: 123456
     # 使用druid连接池
@@ -74,6 +74,6 @@ spring:
 mybatis:
   #  typeAliasesPackage: com.neuedu.entity
   mapper-locations: classpath*:com/test/demo/**/mapper/*.xml
-logging:
-  level:
-    com.test.demo: debug
+#logging:
+#  level:
+#    com.test.demo: debug
