@@ -2,6 +2,8 @@ package com.test.demo.basic.extend;
 
 import lombok.Data;
 
+import java.util.Arrays;
+
 /**
  * *************************************************************************
  * <p/>
@@ -32,8 +34,8 @@ public class ExtendDemo {
         System.out.println(b1.getOperatorId());
         System.out.println(b2.getOperatorId());
 
-
-
+        String str = "1222";
+        System.out.println(Arrays.toString(str.split(",")));
 
 
     }
