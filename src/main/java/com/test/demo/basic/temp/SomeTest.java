@@ -1,5 +1,6 @@
 package com.test.demo.basic.temp;
 
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -39,5 +40,9 @@ public class SomeTest {
         System.out.println("1无\n1".replaceAll("(?s)'.*'",""));
         Pattern compile = Pattern.compile(".*", Pattern.MULTILINE);
         System.out.println(compile.matcher("无").find());
+
+        String msg = "123{0}765";
+        String test = MessageFormat.format(msg, "test");
+        System.out.println(test);
     }
 }
