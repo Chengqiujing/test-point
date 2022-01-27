@@ -17,6 +17,10 @@ import java.util.regex.Pattern;
  * @创建时间：2021/11/8 10:09
  */
 public class SomeTest {
+
+    public final static int NAME_LENGTH_MIN = 1;
+    public final static int NAME_LENGTH_MAX = 60;
+    public final static String NAME_LENGTH_DESCRIPTION = MessageFormat.format("长度只能在{0}到{1}之间",NAME_LENGTH_MIN,NAME_LENGTH_MAX);
     public static void main(String[] args) {
 
         String a = "asdf,";
@@ -44,5 +48,29 @@ public class SomeTest {
         String msg = "123{0}765";
         String test = MessageFormat.format(msg, "test");
         System.out.println(test);
+
+        // 正则表达式匹配空格
+
+        System.out.println("()（ ）.|".matches("^[\\u4e00-\\u9fa5_a-zA-Z0-9（）()/,.|!！@#$%^&*=《》<>{} ]+$"));
+
+        System.out.println(NAME_LENGTH_DESCRIPTION);
+
+
+        for (int i = 9; i > 0; i--) {
+            switch (i){
+                case 1:
+                    System.out.println(i);
+                case 2:
+                    System.out.println(i);
+                case 3:
+                    System.out.println(i);
+                default:
+                    break;
+            }
+        }
+
+
+
+
     }
 }

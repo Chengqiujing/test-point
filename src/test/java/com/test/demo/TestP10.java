@@ -34,7 +34,7 @@ public class TestP10 {
         String url = "http://192.168.126.195:18000/am/zerotrust/getCert.do";
         String time = String.valueOf(System.currentTimeMillis());
         P10 p10 = new P10();
-        p10.setP10("123");
+        p10.setP10("MIHHMHACAQAwEDEOMAwGA1UEBhMFQ047Q04wWTATBgcqhkjOPQIBBggqgRzPVQGCLQNCAATNImLO25bXfBWfizmbaqkTMp4zkwYmiIF3A0cZZbdzWXqA9Y9irXyl8R+QG0umhGd5DF+XS7X9K94NcBQxgkFNMAoGCCqBHM9VAYN1A0cAMEQCIFtQzB56Gjkp0z1aiYRcOKb3HjkzGpCEjqzNrGPdCe2zAiAA8bcZbDBd3CD4x8WRg4dmmZJqNh2uNO+1Kiiku4zXig==");
 
         String data = "post&/am/zerotrust/getCert.do&"+JSONObject.toJSONString(p10)+"&"+time;
         String bcd0188907870108 = HmacSHA256Util.hmacSHA256("bcd0188907870108", data);
