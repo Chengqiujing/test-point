@@ -69,8 +69,12 @@ public class SomeTest {
             }
         }
 
+        try {
+            int b = 1/0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-
-
+        System.out.println(123);
     }
 }
