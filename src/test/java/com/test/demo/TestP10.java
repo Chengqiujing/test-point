@@ -31,10 +31,10 @@ public class TestP10 {
     @Test
     public void test() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://192.168.126.195:18000/am/zerotrust/getCert.do";
+        String url = "http://192.168.136.66:18000/am/zerotrust/getCert.do";
         String time = String.valueOf(System.currentTimeMillis());
         P10 p10 = new P10();
-        p10.setP10("MIHHMHACAQAwEDEOMAwGA1UEBhMFQ047Q04wWTATBgcqhkjOPQIBBggqgRzPVQGCLQNCAATNImLO25bXfBWfizmbaqkTMp4zkwYmiIF3A0cZZbdzWXqA9Y9irXyl8R+QG0umhGd5DF+XS7X9K94NcBQxgkFNMAoGCCqBHM9VAYN1A0cAMEQCIFtQzB56Gjkp0z1aiYRcOKb3HjkzGpCEjqzNrGPdCe2zAiAA8bcZbDBd3CD4x8WRg4dmmZJqNh2uNO+1Kiiku4zXig==");
+        p10.setP10("MIHJMHACAQAwEDEOMAwGA1UEBhMFQ047Q04wWTATBgcqhkjOPQIBBggqgRzPVQGCLQNCAASXk3icqJa6y7Qo+D3bbylHB0DUkhumNtZjdLebQGZotCXrUrJG5ezIDc3sjl6zstPFQrchxjJhjDv+YnadgbfYMAoGCCqBHM9VAYN1A0kAMEYCIQD56v73aRL9rl8SCUNKbB6wD77UyCqaCIAje4YjYlZ3gwIhAPIMtknL2/KYZkQ89qMvuD3bk45GDHH084vNh8Gnzd3v");
 
         String data = "post&/am/zerotrust/getCert.do&"+JSONObject.toJSONString(p10)+"&"+time;
         String bcd0188907870108 = HmacSHA256Util.hmacSHA256("bcd0188907870108", data);
