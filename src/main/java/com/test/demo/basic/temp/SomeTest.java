@@ -2,6 +2,8 @@ package com.test.demo.basic.temp;
 
 import java.text.MessageFormat;
 import java.util.Date;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.regex.Pattern;
 
 /**
@@ -78,5 +80,12 @@ public class SomeTest {
         System.out.println(123);
 
         System.out.println(SomeTest.class.getResource("/").getPath());
+
+
+        BlockingQueue queue = new LinkedBlockingQueue(1);
+        boolean offer = queue.offer(new Object());
+        System.out.println(offer);
+        boolean offer1 = queue.offer(new Object());
+        System.out.println(offer1);
     }
 }
