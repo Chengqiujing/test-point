@@ -76,5 +76,7 @@ public class SomeTest {
         }
 
         System.out.println(123);
+
+        System.out.println(SomeTest.class.getResource("/").getPath());
     }
 }
