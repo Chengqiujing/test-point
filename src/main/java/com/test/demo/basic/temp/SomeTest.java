@@ -1,6 +1,10 @@
 package com.test.demo.basic.temp;
 
 import java.text.MessageFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -22,7 +26,8 @@ public class SomeTest {
 
     public final static int NAME_LENGTH_MIN = 1;
     public final static int NAME_LENGTH_MAX = 60;
-    public final static String NAME_LENGTH_DESCRIPTION = MessageFormat.format("长度只能在{0}到{1}之间",NAME_LENGTH_MIN,NAME_LENGTH_MAX);
+    public final static String NAME_LENGTH_DESCRIPTION = MessageFormat.format("长度只能在{0}到{1}之间", NAME_LENGTH_MIN, NAME_LENGTH_MAX);
+
     public static void main(String[] args) {
 
         String a = "asdf,";
@@ -43,7 +48,7 @@ public class SomeTest {
         System.out.println(new Date().getTime());
 
         System.out.println("1无\n1".matches("(?s)'.*'"));
-        System.out.println("1无\n1".replaceAll("(?s)'.*'",""));
+        System.out.println("1无\n1".replaceAll("(?s)'.*'", ""));
         Pattern compile = Pattern.compile(".*", Pattern.MULTILINE);
         System.out.println(compile.matcher("无").find());
 
@@ -59,7 +64,7 @@ public class SomeTest {
 
 
         for (int i = 9; i > 0; i--) {
-            switch (i){
+            switch (i) {
                 case 1:
                     System.out.println(i);
                 case 2:
@@ -72,7 +77,7 @@ public class SomeTest {
         }
 
         try {
-            int b = 1/0;
+            int b = 1 / 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,5 +92,32 @@ public class SomeTest {
         System.out.println(offer);
         boolean offer1 = queue.offer(new Object());
         System.out.println(offer1);
+
+
+        int num = 12;
+        System.out.println("123 " + num++);
+        System.out.println(num);
+
+        // 时间测试
+        // 报错Exception in thread "main" java.time.temporal.UnsupportedTemporalTypeException: Unsupported unit: Seconds
+        // at java.time.LocalDate.until(LocalDate.java:1614)
+        try {
+            LocalDate start = LocalDate.parse("2022/07/14", DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+
+
+            Period between1 = Period.between(start, LocalDate.now());
+            System.out.println(between1.getDays());
+
+
+            Duration between = Duration.between(start, LocalDate.now());
+            long days = between.toDays();
+            System.out.println(days);
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
