@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.regex.Pattern;
@@ -118,6 +120,29 @@ public class SomeTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+        /**
+         * 从第几个开始截取，如果不足，就截取全部
+         */
+        String url = "https://192.168.136.67:";
+        int pos = -1;
+
+        for (int i = 0; i < 4; i++) {
+            int t = url.indexOf("/", ++pos);
+            if(t>0){
+                pos = t;
+            }else{
+                pos = url.length();
+                break;
+            }
+        }
+        System.out.println(url.substring(0, pos));
+
+
+        Map map = new HashMap<>();
+        map.put("123","0000");
+        System.out.println(map.remove("123"));
 
     }
 }
