@@ -14,12 +14,10 @@ public class TestPW {
 
         System.out.println(validate);
 
-
-
         // 自定义逻辑规则
-
         Rule rule = RuleContainer.init(new RuleA()).and(new RuleB()).or(new RuleC()).toRule();
         ((AbstractPWValidate)pwValidate).setRule(rule);
+        ((AbstractPWValidate)pwValidate).setPwFilter(new SlefFilter());
         System.out.println(pwValidate.validate(pw));
     }
 
@@ -47,4 +45,19 @@ public class TestPW {
             return false;
         }
     }
+
+    static class SlefFilter implements PWFilter{
+
+        @Override
+        public boolean doProcess(AbstractPWValidate.PWProcess pwProcess) {
+            // todo 处理密码加密
+
+            boolean b = pwProcess.doProcess();
+
+            // todo 后置处理
+
+            return b;
+        }
+    }
+
 }
