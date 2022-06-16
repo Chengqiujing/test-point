@@ -12,6 +12,11 @@ import java.util.Random;
 public class Test1 {
 
     public static void main(String[] args) {
+
+        /*
+        伪随机数的测试（jdk15前 随机数种子生成存在bug，seed差一个位）
+         */
+
         System.out.println(randomString(-229985452) + "  " + randomString(-147909649));
         long cheng_qiu_jing = generateSeed("cheng qiu jing", -229985452, -147909649);
     }
