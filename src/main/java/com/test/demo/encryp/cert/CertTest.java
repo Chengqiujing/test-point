@@ -47,25 +47,19 @@ public class CertTest {
 //
 //    private X509AttributeCertificateHolder createAttrCert() throws Exception {
 //        X509CertificateHolder iCertHolder = new X509CertificateHolder(holderCert);
-////
-//// a sample key pair.
-////
-//// RSAPublicKeySpec pubKeySpec = new RSAPublicKeySpec(
-//// new BigInteger(
-//// “b4a7e46170574f16a97082b22be58b6a2a629798419be12872a4bdba626cfae9900f76abfb12139dce5de56564fab2b6543165a040c606887420e33d91ed7ed7”,
-//// 16), new BigInteger(“11”, 16));
+//
 //        X509v2AttributeCertificateBuilder gen = new X509v2AttributeCertificateBuilder(
 //                new AttributeCertificateHolder(iCertHolder.getSubject()),
 //                new AttributeCertificateIssuer(new X500Name(“cn = test”)),
 //                BigInteger.ONE,
 //                new Date(System.currentTimeMillis() - 50000),
 //                new Date(System.currentTimeMillis() + 50000));
-//// the actual attributes
+//        // the actual attributes
 //        GeneralName roleName = new GeneralName(GeneralName.rfc822Name,
 //                “[email protected]”);
 //        ASN1EncodableVector roleSyntax = new ASN1EncodableVector();
 //        roleSyntax.add(roleName);
-//// roleSyntax OID: 2.5.24.72
+//        // roleSyntax OID: 2.5.24.72
 //        gen.addAttribute(new ASN1ObjectIdentifier(“ 2.5 .24 .72”),new DERSequence(roleSyntax));
 //        AlgorithmIdentifier sigAlg = sigAlgFinder.find(“SHA1withRSA”);
 //        AlgorithmIdentifier digAlg = digAlgFinder.find(sigAlg);
