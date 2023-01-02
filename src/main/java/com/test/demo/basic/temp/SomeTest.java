@@ -36,6 +36,9 @@ public class SomeTest {
         String substring = a.substring(0, a.length() - 1);
         System.out.println(substring);
 
+        String b = "qqq";
+        changeString(b);
+        System.out.println(b);
 
 //        Map map = new HashMap<>();
 //        map.put("1","11");
@@ -79,7 +82,7 @@ public class SomeTest {
         }
 
         try {
-            int b = 1 / 0;
+//            int b = 1 / 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +119,6 @@ public class SomeTest {
             System.out.println(days);
 
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -141,8 +143,13 @@ public class SomeTest {
 
 
         Map map = new HashMap<>();
-        map.put("123","0000");
+        map.put("123", "0000");
         System.out.println(map.remove("123"));
 
+    }
+
+
+    private static void changeString(String str) {
+        str = new String("123");
     }
 }
